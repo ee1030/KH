@@ -93,7 +93,7 @@ public class A_Variable {
 		
 		// 상수명은 모두 대문자, 연결된 단어는 '_'로 구분
 		final int AGE = 28;
-		System.out.println("age : " + age); // 28
+		System.out.println("age : " + AGE); // 28
 		
 		// AGE = 29; // 상수는 초기화 후 값을 변경할 수 없기 때문에 에러발생
 	}

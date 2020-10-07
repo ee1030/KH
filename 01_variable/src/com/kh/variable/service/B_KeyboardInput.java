@@ -11,6 +11,7 @@ public class B_KeyboardInput {
 		String name = sc.nextLine(); // 문자열 변수 선언과 동시에 키보드 입력받아서 초기화
 		
 		System.out.println("너의 이름은..." + name);
+		sc.close();
 	}
 	
 }
