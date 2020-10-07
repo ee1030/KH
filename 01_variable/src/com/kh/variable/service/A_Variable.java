@@ -58,9 +58,43 @@ public class A_Variable {
 		
 		// 4. 문자형
 		char ch;
+		ch = 'A';
+		ch = 65;
+		ch = '\u0041';
+		// char의 리터럴 표기법 : ''
 		
 		// 5. 문자열
 		String str;
+		str = "안녕하세요?";
 		// 실제 데이터를 저장하지 않고 데이터가 저장된 주소를 저장한다.
+		
+		// 변수 선언과 동시에 초기화
+		int iNum2 = 200;
+		
+		System.out.println("isTrue : " + isTrue);
+		System.out.println("bNum : " + bNum);
+		System.out.println("sNum : " + sNum);
+		System.out.println("iNum : " + iNum);
+		System.out.println("lNum : " + lNum);
+		System.out.println("fNum : " + fNum);
+		System.out.println("dNum : " + dNum);
+		System.out.println("ch : " + ch);
+		System.out.println("str : " + str);
+		System.out.println("iNum2 : " + iNum2);
+		
+		// 상수 선언 및 초기화
+		System.out.println("----- 상수 -----");
+		
+		int age = 28;
+		System.out.println("age : " + age); // 28
+		
+		age = 29;
+		System.out.println("age : " + age); // 29
+		
+		// 상수명은 모두 대문자, 연결된 단어는 '_'로 구분
+		final int AGE = 28;
+		System.out.println("age : " + age); // 28
+		
+		// AGE = 29; // 상수는 초기화 후 값을 변경할 수 없기 때문에 에러발생
 	}
 }
