@@ -23,18 +23,38 @@ public class A_Variable {
 	}
 	
 	public void declareVariable() {
+		
 		// 1. 논리형
-		boolean isTrue;
+		boolean isTrue; // 1byte
+		isTrue = true;
+		// isTrue : 변수명
+		// '=' : 대입 연산자로서 오른쪽 data를 왼쪽 변수에 저장한다는 의미
+		// true : 리터럴
 		
 		// 2. 정수형
 		byte bNum; // 1byte
+		bNum = 100;
 		short sNum; // 2byte
+		sNum = 10000;
+		// byte, short는 int형 리터럴 표기법을 사용함.
+		// 왜? byte, short는 다른 프로그래밍 언어와의 호환을 위해 필요한 자료형
+		// Java만으로 코드 작성시 사용할 일이 없는 자료형이다. --> 별도의 리터럴 표기법이 존재하지 않는다.
+		
 		int iNum; // 4byte, 정수 기본형
+		iNum = 1000000000; // 10억
+		iNum = 1_000_000_000; // '_'를 이용하여 자릿 수 구분 가능
+		
 		long lNum; // 8byte
+		lNum = 10000000000L; // 100억
+		// (숫자뒤)L 또는 l : long형 리터럴 표기법
+		// 각각의 자료형에 따라 리터럴 표기법이 존재함
+		
 		
 		// 3. 실수형
 		float fNum; // 4byte
+		fNum = 3.141592f;
 		double dNum; // 8byte, 실수 기본형
+		dNum = 3.141592;
 		
 		// 4. 문자형
 		char ch;
