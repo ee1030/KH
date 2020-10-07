@@ -31,8 +31,14 @@ public class B_PrintExample {
 	public void printEx3() {
 		// 문자열 + 문자열
 		// 숫자  + 문자열
-		
 		System.out.println("----- 문자열 + 문자열 -----");
 		System.out.println("안녕? " + "반가워!"); // 안녕? 반가워?
+		System.out.println();
+		System.out.println("----- 숫자 + 문자열 -----");
+		System.out.println(10 + "10"); // 1010
+		
+		System.out.println(123 + "Hello" + 100); // 123Hello100
+		System.out.println(123 + 100 + "Hello"); // 223Hello
+		System.out.println("올해 연도 : " + (2020 + 1));
 	}
 }
