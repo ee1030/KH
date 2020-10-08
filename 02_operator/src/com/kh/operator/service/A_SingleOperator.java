@@ -32,7 +32,7 @@ public class A_SingleOperator {
 		System.out.println(" ++num1 5회 수행 : " + ++num1); // 15
 		System.out.println(" 최종값 : " + num1); // 15
 		
-		// 후위 증가
+		// 후위 증가 끄악
 		int num2 = 10;
 		
 		System.out.println("----- 후위 증가 연산자 -----");
