@@ -51,4 +51,26 @@ public class A_SingleOperator {
 		System.out.println("result : " + result); // 82
 		System.out.println("num : " + num); // 22
 	}
+	
+	public void practice2() {
+		// 문제 : 최종적으로 a, b, c 변수에 저장된 값과
+		// 			result1, result2, result3에 저장된 값 예측하기
+		
+		int a = 10;
+		int b = 20;
+		int c = 30;
+		
+		int result1 = a++;
+		
+		int result2 = ++a + ++b;
+		
+		int result3 = a++ + --b + --c;
+		
+		System.out.println(a); // 13
+		System.out.println(b); // 20
+		System.out.println(c); // 29
+		System.out.println(result1); // 10
+		System.out.println(result2); // 33
+		System.out.println(result3); // 61
+	}
 }
