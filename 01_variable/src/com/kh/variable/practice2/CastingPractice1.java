@@ -8,6 +8,7 @@ public class CastingPractice1 {
 		
 		System.out.print("¹®ÀÚ : ");
 		char ch = sc.nextLine().charAt(0);
+		//int chToInt = sc.nextLine().charAt(0);
 		System.out.println(ch + "unicode : " + (int)ch);
 		
 		sc.close();

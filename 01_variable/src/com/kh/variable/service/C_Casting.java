@@ -73,5 +73,6 @@ public class C_Casting {
 					   // byte, short 자료형 초기화 시에만 int 리터럴 표기법을 사용할 수 있음.
 		
 		//byte num3 = (byte)(num1 + num2);
+		
 	}
 }
