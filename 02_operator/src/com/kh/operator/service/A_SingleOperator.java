@@ -61,10 +61,13 @@ public class A_SingleOperator {
 		int c = 30;
 		
 		int result1 = a++;
+		// a = 11, b = 20, c = 30, result1 = 10
 		
 		int result2 = ++a + ++b;
+		// a = 12, b = 21, c = 30, result2 = 33
 		
 		int result3 = a++ + --b + --c;
+		// a = 13, b = 20, c = 29, result3 = 61
 		
 		System.out.println(a); // 13
 		System.out.println(b); // 20
