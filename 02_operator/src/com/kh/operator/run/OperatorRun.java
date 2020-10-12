@@ -22,6 +22,7 @@ public class OperatorRun {
 		//bbo.compoundAssignmentOp();
 		
 		C_TernaryOperator cto = new C_TernaryOperator();
-		cto.example1();
+		//cto.example1();
+		cto.example2();
 	}
 }
