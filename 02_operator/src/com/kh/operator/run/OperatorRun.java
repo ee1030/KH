@@ -12,6 +12,9 @@ public class OperatorRun {
 		// aso.practice2();
 		
 		B_BinaryOperator bbo = new B_BinaryOperator();
-		bbo.arithmeticOP();
+		//bbo.arithmeticOP();
+		//bbo.comparisonOp();
+		//bbo.logicalOp1();
+		bbo.logicalOp2();
 	}
 }
