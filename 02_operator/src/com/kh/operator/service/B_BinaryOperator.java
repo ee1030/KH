@@ -114,7 +114,83 @@ public class B_BinaryOperator {
 		// 문자끼리의 범위 비교가 가능하다
 		
 		System.out.println(ch + "은/는 대문자 인가? : " + result);
+		sc.close();
+	}
+	
+	public void logicalOp3() {
+		// 입력받은 문자가 'Y'인지 검사(대소문자 구분 X)
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("알파벳을 입력하세요 : ");
+		char ch = sc.nextLine().charAt(0);
+		
+		boolean result = (ch == 'Y') || (ch == 'y');
+		
+		System.out.println(ch + "은/는 알파벳 Y 또는 y 인가? : " + result);
 		
 		sc.close();
+	}
+	
+	public void logicalOp4() {
+		// 증감 + 산술 + 비교 + 논리
+		
+		int a = 2;
+		int b = 3;
+		
+		boolean c = a > b; 
+		boolean d = ++a <= b++;
+		
+		System.out.println("a : " +a); // 3
+		System.out.println("b : " +b); // 4
+		System.out.println("c : " +c); // false
+		System.out.println("d : " +d); // true 
+		
+		System.out.println();
+		
+		System.out.println("!c : " + !c); // true
+		System.out.println("c != d : " + (c != d)); // true
+		
+		System.out.println();
+		
+		System.out.println("(a % b) == 1 : " + ((a % b) == 1)); // false
+		System.out.println("(a == 3) && (b == 4) : " + ((a == 3) && (b == 4))); // true 
+		System.out.println("!d || (a-b) > 0 : " + (!d || (a-b) > 0)); // false
+	
+		
+		System.out.println();
+		
+		System.out.println("!(c == d) && ((a * b == 10) || ( b % 2 == 0)) : " + (!(c == d) && ((a * b == 10) || ( b % 2 == 0)))); 
+		// true
+	}
+	
+	public void compoundAssignmentOp() {
+		// 복합 대입 연산자
+		// - 다른 연산자와 대입 연산자를 함께 사용하는 연산자
+		// - 자기 자신과 연산 후 결과를 다시 자기 자신에게 대입
+		
+		// * 복합 대입 연산은 연산 처리속도가 훨씬 빠르므로 사용 권장
+		
+		int num = 12;
+		
+		// 3증가
+		num += 3;
+		System.out.println("3증가 : " + num); // 15
+		
+		// 5감소
+		num -= 5;
+		System.out.println("5감소 : " + num); // 10
+		
+		// 6배 증가
+		num *= 6;
+		System.out.println("6배 증가 : " + num); // 60
+		
+		// 1/2 감소
+		num /= 2;
+		System.out.println("1/2 감소 : " + num); // 30
+		
+		// 4로 나눴을 때 나머지
+		num %= 4;
+		System.out.println("4로 나눈 나머지 : " + num); // 2
 	}
 }

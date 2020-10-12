@@ -15,6 +15,9 @@ public class OperatorRun {
 		//bbo.arithmeticOP();
 		//bbo.comparisonOp();
 		//bbo.logicalOp1();
-		bbo.logicalOp2();
+		//bbo.logicalOp2();
+		//bbo.logicalOp3();
+		//bbo.logicalOp4();
+		bbo.compoundAssignmentOp();
 	}
 }
