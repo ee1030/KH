@@ -132,7 +132,7 @@ public class ControlPractice {
 			return;
 		}
 		
-		System.out.println(input + "은 " + result +"입니다.");
+		System.out.println(input + "월은 " + result +"입니다.");
 	}
 	
 	public void practice5() {
@@ -217,13 +217,14 @@ public class ControlPractice {
 		
 		System.out.print("피연산자2 입력 : ");
 		int num2 = sc.nextInt();
+		sc.nextLine();
 		
 		System.out.print("연산자를 입력 : ");
 		char op = sc.nextLine().charAt(0);
 		
 		sc.close();
 		
-		int result = 0;
+		double result = 0;
 		
 		switch(op) {
 		case '+' :
@@ -236,7 +237,7 @@ public class ControlPractice {
 			result = num1 * num2;
 			break;
 		case '/' :
-			result = num1 / num2;
+			result = num1 / (double)num2;
 			break;
 		case '%' :
 			result = num1 % num2;
