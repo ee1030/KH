@@ -170,12 +170,10 @@ public class ControlPractice {
 		
 		switch(grade) {
 		case "관리자" :
-			System.out.println("회원관리, 게시글 관리, 게시글 작성, 댓글 작성, 게시글 조회");
-			break;
+			System.out.print("회원관리, 게시글 관리, ");
 			
 		case "회원" :
-			System.out.println("게시글 작성, 댓글 작성, 게시글 조회");
-			break;
+			System.out.print("게시글 작성, 댓글 작성, ");
 			
 		case "비회원" :
 			System.out.println("게시글 조회");
@@ -225,6 +223,11 @@ public class ControlPractice {
 		sc.close();
 		
 		double result = 0;
+		
+		if(num1 < 0 || num2 < 0) {
+			System.out.println("잘못 입력하셨습니다. 프로그램을 종료합니다.");
+			return;
+		}
 		
 		switch(op) {
 		case '+' :
