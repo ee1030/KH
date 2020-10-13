@@ -121,4 +121,173 @@ public class A_For {
 		
 		System.out.println("합계 : " + sum);
 	}
+	
+	public void example9() {
+		// 1 ~ 20 사이의 임의의 정수를 발생시켜
+		// 1부터 발생한 임의의 수까지의 합을 출력
+		
+		int randNum;
+		int sum = 0;
+		
+		randNum = (int)(Math.random() * 20 + 1);
+		for(int i=1; i<=randNum; i++) {
+			sum += i;
+		}
+		
+		System.out.println("발생한 숫자 : " + randNum + "\n합계 : " + sum);
+	}
+	
+	public void example10() {
+		// 정수 두 개를 입력받아
+		// 두 정수 사이의 모든 정수의 합을 출력
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("첫번째 정수 : ");
+		int num1 = sc.nextInt();
+		
+		System.out.print("두번째 정수 : ");
+		int num2 = sc.nextInt();
+		
+		sc.close();
+		
+		int sum = 0;
+		
+		if(num1 > num2) {
+			int tmp;
+			tmp = num1;
+			num1 = num2;
+			num2 = tmp;
+		}
+		
+		for(int i = num1; i <= num2; i++) {
+			sum += i;
+		}
+		
+		System.out.println(num1 + "과 " + num2 + "사이의 모든 정수의 합 : " + sum);
+	}
+	
+	// ====================================================================================
+	
+	// 중첩 for문
+	
+	public void example11() {
+		for(int i=0; i<5; i++) {
+			for(int j=1; j<=5; j++) {
+				System.out.print(j);
+			}
+			System.out.println();
+		}
+	}
+	
+	public void example12() {
+		// 분, 초 출력하기
+		// 0분 0초 ~ 59분 59초
+		for(int min = 0; min < 60; min++) {
+			for(int sec=0; sec<60; sec++) {
+				System.out.println(min + "분 " + sec + "초");
+				try {
+					Thread.sleep(1000);
+				} catch(Exception e) {}
+			}
+		}
+	}
+	
+	public void example13() {
+		// 2단부터 9단까지 구구단 모두 출력
+		
+		for(int i=2; i<=9; i++) {
+			for(int j=1; j<=9; j++) {
+				System.out.println(i + " x " + j + " = " + i*j);
+			}
+			System.out.println();
+		}
+	}
+	
+	public void example14() {
+		// 2단부터 9단까지 구구단 거꾸로 출력
+		
+		for(int i=9; i>=2; i--) {
+			for(int j=9; j>=1; j--) {
+				System.out.println(i + " x " + j + " = " + i*j);
+			}
+			System.out.println();
+		}
+	}
+	
+	public void example15() {
+		// 정수 입력 : 5
+		// 1
+		// 12
+		// 123
+		// 1234
+		// 12345
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("정수 입력 : ");
+		int input = sc.nextInt();
+		
+		sc.close();
+		
+		for(int i=1; i<=input; i++) {
+			for(int j=1; j<=i; j++) {
+				System.out.print(j);
+			}
+			System.out.println();
+		}
+	}
+	
+	public void example16() {
+		// 정수 입력 : 5
+		/*
+		 * 1
+		 * 2 3
+		 * 4 5 6
+		 * 7 8 9 10
+		 * 10 11 12 13 14
+		 */
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("정수 입력 : ");
+		int input = sc.nextInt();
+		
+		sc.close();
+		
+		int count = 1;
+		
+		for(int i=1; i<=input; i++) {
+			for(int j=1; j<=i; j++) {
+				System.out.print(count++ + " ");
+			}
+			System.out.println();
+		}
+	}
+	
+	public void example17() {
+		// 한 줄에 별표문자를 입력된 줄 수와 칸 수만큼 출력
+		// 단, 줄 수와 칸 수가 일치하는 위치에는 줄 번호에 대한 정수가 출력
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("줄 수 : ");
+		int row = sc.nextInt();
+		
+		System.out.print("칸 수 : ");
+		int col = sc.nextInt();
+		
+		sc.close();
+		
+		for(int i=1; i<=row; i++) {
+			for(int j=1; j<=col; j++) {
+				if(i == j) {
+					System.out.print(i);
+				} else {
+					System.out.print("*");
+				}			
+			}
+			System.out.println();
+		}
+	}
 }
