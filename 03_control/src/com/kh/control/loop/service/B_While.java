@@ -49,10 +49,7 @@ public class B_While {
 			}
 			
 			sum += a;			
-		}
-		
-		sc.close();
-		
+		}		
 		System.out.println("합계 : " + sum);
 	}
 	
@@ -76,9 +73,6 @@ public class B_While {
 			}
 			
 		}
-		
-		sc.close();
-		
 		System.out.println("합계 : " + sum);
 	}
 	
@@ -103,8 +97,72 @@ public class B_While {
 			
 		}
 		
-		sc.close();
-		
 		System.out.println("합계 : " + sum);
+	}
+	
+	public void example6() {
+		// while + switch를 이용한 메뉴 구성
+		
+		Scanner sc = new Scanner(System.in);
+		
+		int sel = 0; // 입력받은 정수를 저장할 임시 변수
+		
+		while(sel != 9) {
+			System.out.println("1. 예제1");
+			System.out.println("2. 예제2");
+			System.out.println("3. 예제3");
+			System.out.println("4. 예제4");
+			System.out.println("5. 예제5");
+			System.out.println("9. 종료");
+			
+			System.out.print("메뉴 입력 : ");
+			sel = sc.nextInt();
+			sc.nextLine();
+			
+			
+			switch(sel) {
+			case 1 : example1(); break;
+			case 2 : example2(); break;
+			case 3 : example3(); break;
+			case 4 : example4(); break;
+			case 5 : example5(); break;
+			case 9 : System.out.println("프로그램 종료"); return;
+			default : System.out.println("잘못 입력하셨습니다.");
+			}
+		}
+		sc.close();
+	}
+	
+	public void example7() {
+		// do ~ while + switch를 이용한 메뉴 구성
+		
+		Scanner sc = new Scanner(System.in);
+		
+		int sel = 9; // 입력받은 정수를 저장할 임시 변수
+		
+		do {
+			System.out.println("1. 예제1");
+			System.out.println("2. 예제2");
+			System.out.println("3. 예제3");
+			System.out.println("4. 예제4");
+			System.out.println("5. 예제5");
+			System.out.println("9. 종료");
+			
+			System.out.print("메뉴 입력 : ");
+			sel = sc.nextInt();
+			sc.nextLine();
+			
+			switch(sel) {
+			case 1 : example1(); break;
+			case 2 : example2(); break;
+			case 3 : example3(); break;
+			case 4 : example4(); break;
+			case 5 : example5(); break;
+			case 9 : System.out.println("프로그램 종료"); return;
+			default : System.out.println("잘못 입력하셨습니다.");
+			}
+		}while(sel != 9);
+		
+		sc.close();
 	}
 }

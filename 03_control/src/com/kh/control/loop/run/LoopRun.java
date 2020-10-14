@@ -9,7 +9,7 @@ public class LoopRun {
 //		af.example17();
 		
 		B_While bw = new B_While();
-		bw.example3();
+		bw.example7();
 		
 	}
 }
