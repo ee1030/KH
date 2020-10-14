@@ -1,5 +1,6 @@
 package com.kh.array.service;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class A_Array {
@@ -71,7 +72,7 @@ public class A_Array {
 		// 배열 선언, 할당, 초기화
 		
 		double[] darr = { 1.1, 2.2, 3.2 };
-		// 배열 선언 후 할당, 쵝화를 {}를 이용하여 진행하는 경우
+		// 배열 선언 후 할당, 초기화를 {}를 이용하여 진행하는 경우
 		// new 연산자 없이 작성할 수 있으며
 		// {} 내의 데이터의 갯수 만큼 배열 크기가 할당된다.
 		
@@ -112,8 +113,33 @@ public class A_Array {
 		for(int i = 0; i < group.length; i++) {
 			System.out.print(group[i] + " ");
 		}
-		System.out.println();
-		System.out.println("합계 : " + sum);
+		System.out.println("\n합계 : " + sum);
 		System.out.println("평균 : " + sum/4);
+	}
+	
+	public void example5() {
+		// 입력받을 사람의 수를 먼저 입력하고
+		// 키 입력받아 키, 합계, 평균 출력
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("사람 수 입력 : ");
+		double[] height = new double[sc.nextInt()];
+		
+		double sum = 0.0;
+		
+		for(int i = 0; i < height.length; i++) {
+			System.out.print("입력 " + (i+1) + " : ");
+			height[i] = sc.nextDouble();
+			sum += height[i];
+		}
+		
+		System.out.println(Arrays.toString(height));
+		// Arrays 클래스 : java에서 제공하는 배열 관련 유용한 기능을 모아놓은 클래스
+		// Arrays.toString(배열명) : 
+		// 배열에 저장된 값을 한 줄로 출력, 출력되는 값 사이에 ','를 찍어줌
+		// ex) (123, 123, 123, 123)
+		
+		System.out.println("합계 : " + sum);
+		System.out.println("평균 : " + sum/height.length);
 	}
 }
