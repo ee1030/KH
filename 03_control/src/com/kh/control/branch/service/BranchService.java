@@ -13,7 +13,7 @@ public class BranchService {
 		for(int i = 1; ; i++) {
 			System.out.println(i + " Ãâ·Â");
 			
-			if(i >= 10) {
+			if(i >= 100) {
 				break;
 			}
 		}
