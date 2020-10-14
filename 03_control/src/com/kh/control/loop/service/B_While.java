@@ -165,4 +165,30 @@ public class B_While {
 		
 		sc.close();
 	}
+	
+	public void example8() {
+		// 입력된 문자열을 모두 연결해서 출력하기
+		// 단, "exit" 입력 시 연결 종료
+		
+		// ex) 
+		// 입력 : Hello
+		// 입력 : World
+		// 입력 : exit
+		// 입력된 문자열 HelloWordl
+		
+		Scanner sc = new Scanner(System.in);
+		
+		String str = "";
+		String tmp = null;
+		
+		do {
+			System.out.print("입력 : ");
+			tmp = sc.nextLine();
+			if(!tmp.equals("exit")) {
+				str += tmp;
+			}
+		} while(!tmp.equals("exit"));
+		
+		System.out.println(str);
+	}
 }
