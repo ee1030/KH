@@ -208,16 +208,23 @@ public class ArrayPractice {
 		System.out.print("치킨 이름을 입력하세요 : ");
 		String name = sc.nextLine();
 		
+		int checkChicken = -1; // 치킨이 존재하는지 확인하기 위해 선언한 변수
+		
 		for(int i = 0; i < chicken.length; i++) { // 배열의 0번 인덱스부터 마지막 인덱스까지 반복한다.
 			if(chicken[i].equals(name)) {
-				System.out.println(chicken[i] + "치킨 배달 가능");
+				checkChicken = i; // 배열을 돌며 입력받은 이름의 치킨이 있으면 해당 인덱스 번호를
+								  // checkChicken에 입력한다.
 				break;
-				// 배열의 i번째 인덱스와 입력받은 치킨 이름이 동일할 경우 배달 가능하다고 출력 후 탈출
-			} else {
-				System.out.println(name + "치킨은 없는 메뉴 입니다.");
-				break;
-				// 치킨 이름이 동일하지 않으면 없는 메뉴 출력
 			}
+		}
+		
+		if(checkChicken != -1) {
+			System.out.println(chicken[checkChicken] + "치킨 배달 가능"); 
+			// checkChicken 값이 0이 아닐 경우엔 치킨이 메뉴에 존재한다는 의미이고 checkChicken의 값은
+			// 해당 메뉴가 값으로 존재하는 인덱스 번호이므로 checkChicken번의 인덱스를 출력
+		}else {			
+			System.out.println(name + "치킨은 없는 메뉴 입니다."); 
+			// checkChicken의 값이 0이면 메뉴가 없으므로 없다는 메시지 출력 
 		}
 	}
 	
@@ -319,7 +326,7 @@ public class ArrayPractice {
 	
 	public void practice14() {
 		// 로또 번호 생성기
-		// 13번 문제와 빗슷하다.
+		// 13번 문제와 비슷하다.
 		int[] lotto = new int[6];
 		
 		for(int i = 0; i < lotto.length; i++) {
