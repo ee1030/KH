@@ -13,6 +13,6 @@ public class ArrayRun {
 		//ba.bubbleSort();
 		
 		C_ArrayOverlap ca = new C_ArrayOverlap();
-		ca.example2();
+		ca.createLottoNumber();
 	}
 }

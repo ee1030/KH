@@ -327,7 +327,7 @@ public class ArrayPractice {
 	public void practice14() {
 		// 로또 번호 생성기
 		// 13번 문제와 비슷하다.
-		int[] lotto = new int[6];
+		int[] lotto = new int[7];
 		
 		for(int i = 0; i < lotto.length; i++) {
 			lotto[i] = (int)(Math.random()*45+1); // 난수에 45를 곱한 뒤 1을 더해 1~45까지의 난수를 발생시킨다.
