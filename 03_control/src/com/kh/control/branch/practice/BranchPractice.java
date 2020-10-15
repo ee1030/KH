@@ -189,4 +189,68 @@ public class BranchPractice {
 			// 조건문을 무사히 빠져나왔다면 결과 값을 출력 후 다시 무한루프로 돌아간다.
 		}
 	}
+	
+	public void practice7() {
+		Scanner sc = new Scanner(System.in);
+		
+		while(true) {
+			System.out.print("숫자 : ");
+			int input = sc.nextInt();
+			
+			if(input < 2) {
+				System.out.println("잘못 입력하셨습니다.");
+				continue;
+			}
+			
+			boolean check = true;
+			
+			for(int i = input-1; i > 1; i--) {
+				if(input%i == 0) {
+					check = false;
+					break;
+				}
+			}
+			
+			if(check) {
+				System.out.println("소수입니다.");
+			} else {
+				System.out.println("소수가 아닙니다.");
+			}
+		}
+	}
+	
+	public void pratice8() {
+		// 7번에서 먼저 풀어버렸음...
+	}
+	
+	public void practice9() {
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("숫자 : ");
+		int input = sc.nextInt();
+		
+		if(input < 2) {
+			System.out.println("잘못 입력하셨습니다.");
+			return;
+		}
+		
+		int count2 = 0;
+		
+		for(int i = 2; i <= input; i++) {
+			int count1 = 0;
+			
+			for(int j = 1; j <= i; j++) {
+				if( i%j == 0) {
+					count1++;				
+				}
+			}
+			
+			if(count1 < 3) {
+				System.out.print(i + " ");
+				count2++;
+			}
+		}
+		
+		System.out.println("\n2부터 " + input + "까지 소수의 개수는 " + count2 + "개입니다.");	
+	}
 }
