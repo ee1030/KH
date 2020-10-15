@@ -51,8 +51,30 @@ public class B_ArraySort {
 		System.out.println("\n최종 정렬된 배열 : " + Arrays.toString(arr));
 	}
 	
+	public void isEx1() {
+		int[] arr = {5, 2, 6, 1, 8};
+		
+		System.out.println("초기값 : " + Arrays.toString(arr));
+		
+		for(int i = 1; i < arr.length; i++) {
+			System.out.println("기준 : " + arr[i]);
+			for(int j = i-1; j >= 0; j--) {
+				if(arr[j+1] < arr[j]) {
+					int tmp = arr[j+1];
+					arr[j+1] = arr[j];
+					arr[j] = tmp;
+				}
+				System.out.println("삽입 정렬된 배열 : " + Arrays.toString(arr));
+			}
+		}
+		System.out.println("최종 정렬된 배열 : " + Arrays.toString(arr));	
+	}
+	
 	public void bubbleSort() {
 		// 버블 정렬
+		// 0번 인덱스부터 다음 인덱스와 비교하여 큰값이면 자리를 바꾸고 아니면 그대로 둔 상태에서
+		// 다음 인덱스와 또 비교 그렇게 배열 끝까지 정렬하면 배열의 마지막 인덱스 값이 가장 큰 값이 되므로
+		// 다음 회차에서는 반복 횟수를 1 줄여도 된다.
 		
 		int[] arr = {2, 5, 4, 1, 3};
 		
@@ -60,7 +82,9 @@ public class B_ArraySort {
 		
 		for(int i = 0; i < arr.length-1; i++) { // 1. 회차 지정, 전체 데이터 수 - 1회만큼 반복
 			System.out.println(i+1 + "회차");
-			for(int j = 0; j < arr.length - i - 1; j++) {
+			for(int j = 0; j < arr.length - i - 1; j++) { 
+				// 0번 인덱스부터 끝에서 2번째 인덱스까지 반복(마지막 인덱스는 비교하지 않아도 되므로)
+				
 				if(arr[j+1] < arr[j]) {
 					int tmp = arr[j+1];
 					arr[j+1] = arr[j];
@@ -71,5 +95,23 @@ public class B_ArraySort {
 		}
 		
 		System.out.println("최종 정렬된 배열 : " + Arrays.toString(arr));
+	}
+	
+	public void bsEx1() {
+		int[] arr = {5, 2, 6, 1, 8};
+		
+		System.out.println("초기 배열 : " + Arrays.toString(arr));
+		
+		for(int i = 0; i < arr.length-1; i++) {
+			System.out.println(i+1 + "회차");
+			for(int j = 0; j < arr.length - i - 1; j++) {
+				if(arr[j+1] < arr[j]) {
+					int tmp = arr[j+1];
+					arr[j+1] = arr[j];
+					arr[j] = tmp;
+				}	
+				System.out.println(Arrays.toString(arr));
+			}
+		}
 	}
 }

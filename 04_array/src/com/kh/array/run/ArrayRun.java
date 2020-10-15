@@ -11,12 +11,12 @@ public class ArrayRun {
 		//aa.example5();
 		
 		B_ArraySort bas = new B_ArraySort();
-		//bas.bubbleSort();
+		bas.bsEx1();
 		
 		C_ArrayOverlap cao = new C_ArrayOverlap();
 		//cao.createLottoNumber();
 		
 		D_ArrayCopy dac = new D_ArrayCopy();
-		dac.example1();
+		//dac.example1();
 	}
 }
