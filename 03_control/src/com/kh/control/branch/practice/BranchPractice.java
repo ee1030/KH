@@ -158,36 +158,33 @@ public class BranchPractice {
 			
 			int result = 0; // 결과 값을 저장하기 위한 변수
 			
-			if(op != '+' && op != '-' && op != '*' && op != '/' && op != '%') {
-				System.out.println("없는 연사자입니다. 다시 입력해주세요.");
-				continue;
-				// 조건식에 있는 연산자가 아닐 경우 오류메시지를 출력하고
-				// continue를 이용하여 아래쪽 코드들을 건너뛰고 다시 루프 시작
-			} else if(op == '/' && num2 == 0) {
+			if(op == '/' && num2 == 0) {
 				System.out.println("0으로 나눌 수 없습니다. 다시 입력해주세요.");
 				continue;
 				// 마찬가지고 '/'연산자를 입력하고 정수2에 0을 입력하였을 경우
 				// 나눌 수 없기 때문에 오류메시지 출력 후 continue를 이용하여 코드 건너뛰기
-			} else {
-				switch(op) {
-				case '+' :
-					result = num1 + num2;
-					break;
-				case '-' :
-					result = num1 - num2;
-					break;
-				case '*' :
-					result = num1 * num2;
-					break;
-				case '/' :
-					result = num1 / num2;
-					break;
-				case '%' :
-					result = num1 % num2;
-					break;
-				}
-				// 그 외의 경우에는 switch문을 이용하여 result값을 계산해준다.
 			}
+			
+			switch(op) {
+			case '+' :
+				result = num1 + num2;
+				break;
+			case '-' :
+				result = num1 - num2;
+				break;
+			case '*' :
+				result = num1 * num2;
+				break;
+			case '/' :
+				result = num1 / num2;
+				break;
+			case '%' :
+				result = num1 % num2;
+				break;
+			default :
+				System.out.println("없는 연사자입니다. 다시 입력해주세요.");
+			} // switch문을 이용하여 result값을 계산해준다.
+			
 			System.out.println(num1 + " " + op + " " + num2 + " = " + result);		
 			// 조건문을 무사히 빠져나왔다면 결과 값을 출력 후 다시 무한루프로 돌아간다.
 		}

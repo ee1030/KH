@@ -1,6 +1,7 @@
 package com.kh.darr.service;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class DarrService {
 
@@ -45,9 +46,86 @@ public class DarrService {
 				sum += arr[i][j];
 			}
 		}
-		
 		System.out.println("배열의 값들의 합계 : " + sum +
-				"\n배열의 값들의 평균 : " + (double)sum/(arr.length*arr[0].length));
+				"\n배열의 값들의 평균 : " + (double)sum / (arr.length*arr[0].length));
 		System.out.println(Arrays.deepToString(arr));
+	}
+	
+	public void example3() {
+		// 학생 두명의 국어 영어 수학 점수를 입력 받아
+		// 각 학생의 점수 합계, 평균 출력
+		// 두 학생의 국어 평균, 영어 평균, 수학 평균 출력
+		
+		/*
+		 * 1번 학생 점수 입력
+		 * 국어 : 50
+		 * 영어 : 60
+		 * 수학 : 70
+		 * 
+		 * 2번 학생 점수 입력
+		 * 국어 : 70
+		 * 영어 : 80
+		 * 수학 : 90
+		 * 
+		 * -----------------------------
+		 * 
+		 * 1번 학생 성적
+		 * 국어 : 50
+		 * 영어 : 60
+		 * 수학 : 70
+		 * 합계 : 180
+		 * 평균 : 60
+		 * 
+		 * 2번 학생 성적
+		 * 국어 : 70
+		 * 영어 : 80
+		 * 수학 : 90
+		 * 합계 : 2240
+		 * 평균 : 80
+		 * 
+		 * 국어 평균 : 60
+		 * 영어 평균 : 70
+		 * 수학 평균 : 80
+		 * 
+		 */
+		
+		Scanner sc = new Scanner(System.in);
+		
+		int[][] score = new int[2][3];
+		
+		String[] subject = {"국어", "영어", "수학"};
+		
+		for(int i = 0; i < score.length; i++) {
+			System.out.println(i+1+"번 학생 점수 입력");
+			
+			for(int j = 0; j < score[i].length; j++) {
+				System.out.print(subject[j] + " : ");
+				score[i][j] = sc.nextInt();
+			}
+		}
+		
+		System.out.println("\n--------------------------------------=\n");
+		
+		for(int i = 0; i < score.length; i++) {
+			System.out.println(i+1+"번 학생 성적");
+			int sum = 0;
+			
+			for(int j = 0; j < score[i].length; j++) {
+				sum += score[i][j];
+				System.out.println(subject[j] + " : " + score[i][j]);
+			}
+			
+			System.out.println("합계 : " + sum +
+					"\n평균 : " + (double)sum/(subject.length));
+		}
+		
+		for(int i = 0; i < score[0].length; i++) {
+			int subjectSum = 0;
+			for(int j = 0; j < score.length; j++) {
+				subjectSum += score[j][i];
+			}
+			
+			System.out.println(subject[i] + " 평균 : " + (double)(subjectSum/score.length));
+		}
 	}
 }
