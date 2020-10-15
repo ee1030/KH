@@ -17,6 +17,6 @@ public class ArrayRun {
 		//cao.createLottoNumber();
 		
 		D_ArrayCopy dac = new D_ArrayCopy();
-		dac.shallowCopy();
+		dac.example1();
 	}
 }

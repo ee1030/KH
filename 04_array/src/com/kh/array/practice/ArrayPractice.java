@@ -391,50 +391,39 @@ public class ArrayPractice {
 	public void practice16() {
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.print("배열의 크기를 입력 하세요 : ");
+		System.out.print("배열의 크기를 입력하세요 : ");
 		int arrSize = sc.nextInt();
 		sc.nextLine();
-		// 배열의 크기를 입력한다.
 		
-		String[] strArr = new String[arrSize]; // strArr 배열을 선언하고 받은 입력크기 만큼의 길이로 할당해준다
+		String[] strArr = new String[arrSize];
 		
 		for(int i = 0; i < strArr.length; i++) {
 			System.out.print(i+1 + "번째 문자열 : ");
 			strArr[i] = sc.nextLine();
-		} // strArr의 길이만큼 문자열을 입력받아 배열의 인덱스에 넣을 값을 초기화 해준다.
+		}
 		
-		while(true) { // 무한루프를 통해 y나 Y외의 다른 문자를 입력하는 경우 toString메서드를 이용하여 배열을 출력하고
-					  // 반복문을 탈출한다.
-			System.out.print("더 값을 입력하시겠습니까?(Y/N) : ");
-			char loopCheck = sc.nextLine().charAt(0);
-			// 배열의 길이를 늘릴지 여부를 문자로 입력받아 loopCheck변수에 저장해준다.
+		while(true) {
+			System.out.print("더 값을 입력 하시겠습니까?(Y/N) : ");
+			char check = sc.nextLine().charAt(0);
 			
-			if(loopCheck == 'y' || loopCheck == 'Y') { // loopCheck 변수가 y또는 Y일 경우
-				System.out.print("더 입력하고 싶은 개수 : ");
-				int addCount = sc.nextInt();
-				sc.nextLine(); // 배열의 길이를 얼마나 늘리고 싶은지 입력받아 addCount 변수에 저장한다.
+			if(check == 'y' || check == 'Y') {
+				System.out.print("더 입력 하고 싶은 개수 : ");
+				int extSize = sc.nextInt();
+				sc.nextLine();
 				
-				String[] extendedArr = new String[strArr.length + addCount];
-				// 배열의 길이를 늘리기 위해서 깊은 복사를 해야하므로
-				// 새로운 배열인 extendedArr를 선언하고, 처음 입력받았던 strArr의 길이에 addCount값을 더한 만큼의  
-				// 길이를 할당해 준다.
+				String[] extArr = new String[strArr.length+extSize];
+				System.arraycopy(strArr, 0, extArr, 0, strArr.length);
 				
-				for(int i = 0; i < strArr.length; i++) {
-					extendedArr[i] = strArr[i];
-				} // 기존에 존재하던 strArr의 인덱스 값들을 extendedArr에 복사해준다(깊은 복사)
+				for(int i = strArr.length; i < extArr.length; i++) {
+					System.out.print(i+1 + "번째 문자열 : ");
+					extArr[i] = sc.nextLine();
+				}
 				
-				for(int i = strArr.length+1; i <= extendedArr.length; i++) {
-					System.out.print(i + "번째 문자열 : ");
-					extendedArr[i-1] = sc.nextLine();
-				} // 복사가 종료되면 추가될 문자열을 추가된 길이 만큼의 횟수로 입력받고 해당 인덱스 값을 초기화해준다.
-				
-				strArr = extendedArr; // 새로운 배열에 문자열 추가까지 끝났다면, 기존의 배열인 strArr에 extenedArr를
-									  // 대입하여 반복문이 계속 되더라도 누적될 수 있게 한다.
+				strArr = extArr;
 			} else {
-				System.out.println(Arrays.toString(strArr));
 				break;
-				// loopCheck 변수가 y나 Y 이외의 다른 문자가 입력되면 strArr를 출력하고 반복문을 탈출한다.
 			}
 		}
+		System.out.println(Arrays.toString(strArr));
 	}
 }
