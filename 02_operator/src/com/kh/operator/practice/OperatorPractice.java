@@ -77,7 +77,8 @@ public class OperatorPractice {
 		
 		String genderResult = (gender == 'M') ? "남학생" : "여학생"; 
 		
-		System.out.println(grade + "학년 " + group + "반 " + studentNum + "번 " + name + genderResult +
+		System.out.println(grade + "학년 " + group + "반 " + studentNum + "번 " + name + " " +
+				genderResult +
 				"의 " + "성적은" + record + "이다."); 
 		
 		sc.close();

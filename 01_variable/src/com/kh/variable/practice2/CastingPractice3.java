@@ -23,6 +23,6 @@ public class CastingPractice3 {
 		System.out.println( ch ); // 'A'
 		System.out.println( (int)ch ); // 65
 		System.out.println( ch + iNum1 ); // 75
-		System.out.println( (char)(ch + iNum1) ); // 'K' wow
+		System.out.println( (char)(ch + iNum1) ); // 'K'
 	}
 }
