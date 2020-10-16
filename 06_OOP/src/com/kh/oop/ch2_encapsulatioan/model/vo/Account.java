@@ -18,8 +18,10 @@ public class Account {
 	private String name = "유현재"; // 이름
 	private String accNum = "123-45-6789"; // 계좌번호
 	private int pwd = 1234; // 비밀번호
-	private String backCode = "002"; // 은행코드
+	private final String BANK_CODE = "002"; // 은행코드
 	private int balance = 100000; // 잔액
+	
+	// public static final double PI = 3.14;
 	
 	// 기능 정의
 	// private으로 외부 직접 접근이 제한된 멤버 변수에
@@ -36,8 +38,8 @@ public class Account {
 	public int getPwd() {
 		return pwd;
 	}
-	public String getBackCode() {
-		return backCode;
+	public String getBankCode() {
+		return BANK_CODE;
 	}
 	public int getBalance() {
 		return balance;
@@ -51,9 +53,10 @@ public class Account {
 	public void setPwd(int pwd) {
 		this.pwd = pwd;
 	}
-	public void setBackCode(String backCode) {
-		this.backCode = backCode;
-	}
+//	BANK_CODE는 final(상수) 이므로 값을 변경 할 수 없음.
+//	public void setBankCode(String bankCode) {
+//		this.BANK_CODE = bankCode;
+//	}
 	public void setBalance(int balance) {
 		this.balance = balance;
 	}
