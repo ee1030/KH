@@ -25,6 +25,33 @@ public class Book {
 		this.price = price;
 	}
 	
+	// 오버로딩 : 한 클래스 내에 동일한 이름의 메서드를 여러개 작성하는 기법
+	// 조건 1) 메서드명 동일
+	// 조건 2) 매개변수의 개수, 타입, 순서가 달라야함
+	
+	public Book(String title, String author, int price) {
+		this.title = title;
+		this.author = author;
+		this.price = price;
+	}
+	
+	public Book(String title, String author) {
+		// 매개변수 개수 감소(3 -> 2)
+	}
+	
+	public Book(String title, String author, String content) {
+		// 마지막 매개변수 타입 변경(int -> String)
+	}
+	
+	public Book(int pirce, String title, String author) {
+		// 매개변수 순서 변경
+	}
+	
+//	public Book(String content, String publisher, int price) {
+//		// 매개변수 변수명 변경 -> 에러방생
+//		// -> 오버로딩 시 매개변수명은 중요하지 않음. 타입만 보면 됨.
+//	}
+	
 	public String getTitle() {
 		return title;
 	}

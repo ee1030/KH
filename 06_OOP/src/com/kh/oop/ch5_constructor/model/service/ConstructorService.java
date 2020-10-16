@@ -21,4 +21,6 @@ public class ConstructorService {
 				"깐따삐야출판", 50500000);
 		System.out.println(book2.toString());
 	}
+	// 이름 형태가 동일한 메서드는 중복 작성 할 수 없다.
+	// public void example() {}
 }
