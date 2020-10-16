@@ -18,11 +18,11 @@ public class Book {
 	// 객체 생성 시 전달받은 값을 객체 필드 초기화용으로 사용함.
 	// 자동 생성되지 않고, 개발자 필요에 의해서 작성되는 생성자
 	public Book(String title, String author, String content, String publisher, int price) {
-		this.title = title;
-		this.author = author;
+		// this() 생성자
+		// 같은 클래스 내에서 다른 생성자를 부를 때 사용
+		this(title, author, price);
 		this.content = content;
 		this.publisher = publisher;
-		this.price = price;
 	}
 	
 	// 오버로딩 : 한 클래스 내에 동일한 이름의 메서드를 여러개 작성하는 기법
