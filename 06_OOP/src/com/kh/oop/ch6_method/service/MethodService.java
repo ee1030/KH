@@ -24,8 +24,8 @@ public class MethodService {
 		int sel = sc.nextInt();
 		
 		switch(sel) {
-		case 1 : System.out.println(add(num1, num2));break;
-		case 2 : System.out.println(sub(num1, num2));break;
+		case 1 : System.out.println(num1 + " + " + num2 + " = " + add(num1, num2));break;
+		case 2 : System.out.println(num1 + " - " + num2 + " = " + sub(num1, num2));break;
 		case 3 : System.out.println(Arrays.toString(array(num1, num2)));break;
 		}
 	}
@@ -52,5 +52,14 @@ public class MethodService {
 			result[i] = n1++;
 		}
 		return result;
+	}
+	
+	public static int staticMethod(int[] arr) {
+		// 전달받은 배열 내에 있는 데이터의 합 반환
+		int sum = 0;
+		for(int i = 0; i < arr.length; i++) {
+			sum += arr[i];
+		}
+		return sum; 
 	}
 }
