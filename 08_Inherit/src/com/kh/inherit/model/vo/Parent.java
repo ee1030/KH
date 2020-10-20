@@ -1,4 +1,4 @@
-package com.kg.inherit.model.vo;
+package com.kh.inherit.model.vo;
 
 public class Parent {
 	public int assets = 1000000000;
@@ -17,7 +17,7 @@ public class Parent {
 		this.goldBar = goldBar;
 	}
 	
-	public void hun_yug() {
+	public final void hun_yug() {
 		System.out.println("니 인생에나 훈수 하세요 제발");
 	}
 }
