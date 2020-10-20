@@ -70,6 +70,22 @@ public class B_ArraySort {
 		System.out.println("최종 정렬된 배열 : " + Arrays.toString(arr));	
 	}
 	
+	public void isEx2() {
+		int[] arr = {3, 5, 1, 4, 9};
+		
+		for(int i = 1; i < arr.length; i++) {
+			for(int j = i-1; j >= 0; j--) {
+				if(arr[j] > arr[j+1]) {
+					int tmp = arr[j];
+					arr[j] = arr[j+1];
+					arr[j+1] = tmp;
+				}
+			}
+		}
+		
+		System.out.println(Arrays.toString(arr));
+	}
+	
 	public void bubbleSort() {
 		// 버블 정렬
 		// 0번 인덱스부터 다음 인덱스와 비교하여 큰값이면 자리를 바꾸고 아니면 그대로 둔 상태에서
@@ -113,5 +129,22 @@ public class B_ArraySort {
 				System.out.println(Arrays.toString(arr));
 			}
 		}
+	}
+	
+	public void bsEx2() {
+		int[] arr = {9, 3, 7, 2, 6, 8};
+		
+		for(int i = 0; i < arr.length - 1; i++) {
+			for(int j = 0; j < arr.length-i-1; j++) {
+				if(arr[j] > arr[j+1]) {
+					int tmp = arr[j];
+					arr[j] = arr[j+1];
+					arr[j+1] = tmp;
+				}
+			}
+		}
+		
+		System.out.println(Arrays.toString(arr));
+		
 	}
 }

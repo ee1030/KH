@@ -11,7 +11,7 @@ public class ArrayRun {
 		//aa.example5();
 		
 		B_ArraySort bas = new B_ArraySort();
-		bas.bsEx1();
+		bas.bsEx2();
 		
 		C_ArrayOverlap cao = new C_ArrayOverlap();
 		//cao.createLottoNumber();
