@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import com.kh.practice.model.service.StudentManagementService;
 import com.kh.practice.model.service.StudentManagementServiceImpl;
+import com.kh.practice.model.vo.Student;
 
 public class StudentManagementViewImpl extends StudentManagementView {
 	
@@ -76,9 +77,20 @@ public class StudentManagementViewImpl extends StudentManagementView {
 		// 나이를 입력받아  service.selectAge(입력받은나이)를 호출하고
 		// 결과를 Student[] 타입으로 받아 for문을 이용하여 출력.
 		// 단, 전달받은  Student[]의 길이가 0일 경우
-		// "나이가 일치하는 학생이 없습니다." 출력
+		// "나이가 일치하는 학생이 없습니다." 출력	
+		System.out.print("검색하실 나이를 입력해 주세요 : ");
+		int input = sc.nextInt();
 		
-		
+		if(service.selectAge(input)[0] == null) {
+			System.out.println("나이가 일치하는 학생이 없습니다.");
+		} else {
+			for(int i = 0; i < service.selectAge(input).length; i++) {
+				if(service.selectAge(input)[i] == null) {
+					break;
+				}
+				System.out.println(service.selectAge(input)[i].toString());
+			}
+		}		
 	}
 	
 	
@@ -88,6 +100,19 @@ public class StudentManagementViewImpl extends StudentManagementView {
 		// 이름, 나이, 성별을 입력받아 Student 객체를 생성하고,
 		// service.insertStundet(생성한 Student객체)를 호출하여 삽입.
 		// (반환값 없음)
+		
+		System.out.print("이름을 입력하세요 : ");
+		String name = sc.nextLine();
+		
+		System.out.print("나이를 입력하세요 : ");
+		int age = sc.nextInt();
+		sc.nextLine();
+		
+		System.out.print("성별을 입력하세요 : ");
+		char gender = sc.nextLine().charAt(0);
+		
+		Student insert = new Student(name, age, gender);
+		service.insertStudnet(insert);
 	}
 	
 	
@@ -101,7 +126,25 @@ public class StudentManagementViewImpl extends StudentManagementView {
 		// 일치하는 학생이 존재할 경우 이름, 나이 ,성별을 입력받아 Student 객체를 생성하고
 		// service.updateStudent(검색할 이름, 생성한 학생객체)하여 학생 정보를 수정.
 		// (반환값 없음)
-
+		System.out.print("수정할 학생의 이름을 입력하세요 : ");
+		String name = sc.nextLine();
+		
+		if(service.selectName(name) == null) {
+			System.out.println("일치하는 학생이없습니다.");
+		} else {
+			System.out.print("수정할 이름을 입력하세요 : ");
+			String updateName = sc.nextLine();
+			
+			System.out.print("수정할 나이를 입력하세요 : ");
+			int updateAge = sc.nextInt();
+			sc.nextLine();
+			
+			System.out.print("수정할 성별을 입력하세요 : ");
+			char updateGender = sc.nextLine().charAt(0);
+			
+			Student updated = new Student(updateName, updateAge, updateGender);
+			service.updateStudent(name, updated);
+		}
 		
 	}
 	
@@ -116,10 +159,15 @@ public class StudentManagementViewImpl extends StudentManagementView {
 		// Student 타입을 반환 받아
 		// 삭제 성공 시 삭제된 학생 정보 + " 삭제되었습니다.,
 		// 삭제 실패 시 "일치하는 학생이 없습니다." 출력
+		System.out.print("삭제할 학생의 이름을 입력하세요 : ");
+		String name = sc.nextLine();
 		
+		Student delStd = service.deleteStudent(name);
+		
+		if( delStd == null) {
+			System.out.println("일치하는 학생이 없습니다.");
+		} else {
+			System.out.println(delStd.toString() + " 삭제되었습니다.");
+		}
 	}
-	
-	
-	
-	
 }

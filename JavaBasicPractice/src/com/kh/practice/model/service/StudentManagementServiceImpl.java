@@ -1,5 +1,7 @@
 package com.kh.practice.model.service;
 
+import java.util.Arrays;
+
 import com.kh.practice.model.vo.Student;
 
 public class StudentManagementServiceImpl implements StudentManagementService {
@@ -62,7 +64,17 @@ public class StudentManagementServiceImpl implements StudentManagementService {
 	@Override
 	public Student[] selectAge(int age) {
 		
-		return null;
+		Student[] newObjectArr = new Student[students.length];
+		
+		int currentIndex = 0;
+		for(int i = 0; i < students.length; i++) {
+			if(students[i].getAge() == age) {
+				newObjectArr[currentIndex] = students[i];
+				currentIndex++;
+			}
+		}
+		
+		return newObjectArr;
 	}
 
 
@@ -70,7 +82,16 @@ public class StudentManagementServiceImpl implements StudentManagementService {
 	// 만약 students 배열의 크기가 부족할 경우 2배로 증가시킨 후 추가.
 	@Override
 	public void insertStudnet(Student std) {
+		if(currentIndex == students.length - 1) {
+			Student[] newArr = new Student[students.length * 2];
+			
+			System.arraycopy(students, 0, newArr, 0, students.length);
+			
+			students = newArr;
+		}
 		
+		currentIndex++;
+		students[currentIndex] = std;
 	}
 	
 	
@@ -79,7 +100,11 @@ public class StudentManagementServiceImpl implements StudentManagementService {
 	// 해당 요소가 참조하는 Student 객체를 전달받은 std로 얕은 복사
 	@Override
 	public void updateStudent(String name, Student std) {
-		
+		for(int i = 0; i < students.length; i++) {
+			if(students[i].getName().equals(name)) {
+				students[i] = std;
+			}
+		}
 	}
 	
 
@@ -90,6 +115,22 @@ public class StudentManagementServiceImpl implements StudentManagementService {
 	@Override
 	public Student deleteStudent(String name) {
 		
+		Student tmpStd = new Student();
+		
+		for(int i = 0; i < students.length; i++) {
+			if(students[i].getName().equals(name)) {
+				
+				tmpStd = students[i];
+				Student[] tmpArr = new Student[students.length];
+				
+				System.arraycopy(students, 0, tmpArr, 0, i);
+				System.arraycopy(students, i+1, tmpArr, i, students.length - i - 1);
+							
+				students = tmpArr;
+				currentIndex--;
+				return tmpStd;
+			}
+		}
 		return null;
 	}
 
