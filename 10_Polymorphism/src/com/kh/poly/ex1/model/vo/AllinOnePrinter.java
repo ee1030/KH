@@ -1,6 +1,13 @@
 package com.kh.poly.ex1.model.vo;
 
-public abstract class AllinOnePrinter {
+public abstract class AllinOnePrinter implements Printer, Scanner {
+	// implements : 구현하다
+	// 부모 인터페이스 - 자식 클래스 상속 : implements
+	// 인터페이스는 다중 상속 가능
+	// * 추상 클래스가 인터페이스 상속 시 
+	//	 인터페이스의 추상 메소드를 오버라이딩 하지 않아도 에러X
+	//   -> 왜? 추상 클래스도 내부적으로 추상 메소드를 포함할 수 있기 때문
+	
 	// 복합기(프린터, 스캐너)
 	
 	// 추상 클래스
