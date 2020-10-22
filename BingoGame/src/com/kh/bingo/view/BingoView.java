@@ -22,7 +22,7 @@ public class BingoView {
 			sel = sc.nextInt();
 			
 			switch(sel) {
-			case 1: bingoView(); break;
+			case 1: bingoViewRand(); break;
 			case 2: System.out.println("made by 게으른개발자"); break;
 			case 0: System.out.println("프로그램 종료");break;
 			default : System.out.println("잘못 입력 하셨습니다.");
@@ -40,6 +40,46 @@ public class BingoView {
 			for(int j = 0; j < service.getTable()[i].length; j++) {
 				System.out.print(i + "행 " + j + "열의 값을 입력하세요 : ");
 				 service.setBingoNum(i, j, sc.nextLine());
+			}
+		}
+		
+		modifyTable();
+		tableView();
+	}
+	
+	public void bingoViewRand() {
+		
+		System.out.print("빙고 칸의 개수를 입력해주세요 : ");
+		int bSize = sc.nextInt();
+		service.setTable(bSize);
+		sc.nextLine();
+		
+		
+		
+		for(int i = 0; i < service.getTable().length; i++) {
+			for(int j = 0; j < service.getTable()[i].length; j++) {
+				String random = Integer.toString((int)(Math.random()*bSize*bSize)+1);
+				
+				boolean flag = false;
+				
+				for(int k = 0; k <= i; k++) {
+					for(int l = 0; l < service.getTable()[k].length; l++) {
+						if(random.equals(service.getTable()[k][l])) {
+							flag = true;
+							break;
+						}
+						if(flag) {
+							break;
+						}
+					}
+				}
+				
+				if(flag) {
+					j--;
+					continue;
+				}
+				
+				service.setBingoNum(i, j, random);
 			}
 		}
 		
