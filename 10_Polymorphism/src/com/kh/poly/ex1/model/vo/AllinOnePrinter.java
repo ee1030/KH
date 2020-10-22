@@ -1,8 +1,42 @@
 package com.kh.poly.ex1.model.vo;
 
-public class AllinOnePrinter {
+public abstract class AllinOnePrinter {
 	// 복합기(프린터, 스캐너)
 	
 	// 추상 클래스
 	// - 일반 멤버(변수 + 완성된 메소드) + 미완성 메소드가 포함된 클래스
+	// - 미완성 상태이기 때문에 new를 이용한 객체 생성이 불가능함.
+	// -> 단, 부모타입 참조 변수로는 사용 가능함(다형성)
+	
+	// 일반 멤버 변수
+	private String brand;
+	private String name;
+
+	// 생성자
+	public AllinOnePrinter() {}
+
+	public AllinOnePrinter(String brand, String name) {
+		this.brand = brand;
+		this.name = name;
+	}
+
+	public String getBrand() {
+		return brand;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setBrand(String brand) {
+		this.brand = brand;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	// 미완성 메소드(abstract method)
+	// -> 상속 관계에 있는 자식 메소드에서 오버라이딩을 강제화 함.
+	public abstract double maxPaperSize();
 }
