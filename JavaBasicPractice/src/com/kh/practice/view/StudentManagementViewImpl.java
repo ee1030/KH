@@ -18,7 +18,10 @@ public class StudentManagementViewImpl extends StudentManagementView {
 		// 전체 학생 정보를 Student[]로 반환 받아 화면에 출력 
 		// 단, 배열 요소의 참조값이 null이면 출력 반복문 종료 
 		
-		for(int i = 0; i < service.selectAll().length; i++) {
+		// service.selectAll 하면 students 객체 배열이 반환된다
+		// 즉 service.selectAll = students(Student[])
+		for(int i = 0; i < service.selectAll().length; i++) { 
+																
 			if(service.selectAll()[i] == null) {
 				break;
 			}

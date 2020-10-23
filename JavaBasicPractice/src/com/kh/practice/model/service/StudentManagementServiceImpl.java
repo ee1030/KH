@@ -23,7 +23,7 @@ public class StudentManagementServiceImpl implements StudentManagementService {
 	// 전체 학생 정보가 담겨있는 배열을 반환하는 service
 	@Override
 	public Student[] selectAll() {
-		return students;
+		return students; // Impl 클래스에서 만들어 놓은 객체 배열을 그대로 반환
 	}
 
 
