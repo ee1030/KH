@@ -123,23 +123,20 @@ public class StudentManagementServiceImpl implements StudentManagementService {
 				tmpStd = students[i];
 				Student[] tmpArr = new Student[students.length];
 				
-				System.arraycopy(students, 0, tmpArr, 0, i);
-				System.arraycopy(students, i+1, tmpArr, i, students.length - i - 1);
-							
-				students = tmpArr;
-				currentIndex--;
+//				System.arraycopy(students, 0, tmpArr, 0, i);
+//				System.arraycopy(students, i+1, tmpArr, i, students.length - i - 1);
+//							
+//				students = tmpArr;
+//				currentIndex--;
+//				return tmpStd; // arraycopy를 이용하여 배열을 새로 복사하는 방법
+				
+				for(int j = i; j < students.length -1; j++) {
+					students[j] = students[j+1];
+				}
+				students[currentIndex--] = null; // for문을 이용하여 i번째 인덱스부터 뒤의 인덱스를 한칸씩 앞으로 당겨오는 방법
 				return tmpStd;
 			}
 		}
 		return null;
 	}
-
-
-	
-
-	
-	
-	
-	
-	
 }
