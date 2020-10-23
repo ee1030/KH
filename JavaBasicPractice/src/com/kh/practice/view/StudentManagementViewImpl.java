@@ -20,8 +20,7 @@ public class StudentManagementViewImpl extends StudentManagementView {
 		
 		// service.selectAll 하면 students 객체 배열이 반환된다
 		// 즉 service.selectAll = students(Student[])
-		for(int i = 0; i < service.selectAll().length; i++) { 
-																
+		for(int i = 0; i < service.selectAll().length; i++) { 							
 			if(service.selectAll()[i] == null) {
 				break;
 			}
