@@ -7,5 +7,6 @@ public class StudentManagementRun {
 	public static void main(String[] args) {
 		StudentManagementView view = new StudentManagementViewImpl();
 		view.displayMainMenu();
+		// ½ÇÇà...
 	}
 }
