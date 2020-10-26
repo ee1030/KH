@@ -5,20 +5,25 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
     	Scanner sc = new Scanner(System.in);
-    	int input1 = sc.nextInt();
-    	int input2 = sc.nextInt();
-    	int input3 = sc.nextInt();
     	
-    	int count = 0;
+    	int h = sc.nextInt();
+    	int r = sc.nextInt();
     	
-    	for(int i = 0; i < input1; i++) {
-    		for(int j = 0; j < input2; j++) {
-    			for(int k = 0; k < input3; k++) {
-	    			System.out.println(i + " " + j + " " + k);
-	    			count++;
-    			}
-    		}
+    	for(int i = 0; i < r; i++) {
+	    	for(int j = 0; j < h; j++) {
+	    		for(int k = 0; k < j; k++) {
+	    			System.out.print(" ");
+	    		}
+	    		System.out.println("*");
+	    	}
+	    	
+	    	for(int j = h-1; j > 0; j--) {
+	    		for(int k = j; k > 1; k--) {
+	    			System.out.print(" ");
+	    		}
+	    		System.out.println("*");
+	    	}
+	    	
     	}
-    	System.out.println(count);
-    }  
+    }
 }
