@@ -1,37 +1,41 @@
 package com.kh.baekjun.main;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-    	Scanner sc = new Scanner(System.in);
     	
+    	Scanner sc = new Scanner(System.in);
+
     	int input = sc.nextInt();
     	
-    	int[] binNum = new int[1000];
-    	int i = binNum.length-1;
+    	int[] arr = new int[input];
+    	String[] strArr = new String[input];
     	
-    	if(input == 0) {
-    		System.out.println(0);
-    		return;
+    	for(int i = 0; i < input; i++) {
+    		String strInput = sc.nextLine();
+    		String[] tmpArr = new String[2];
+    		
+    		tmpArr = strInput.split(" ");
+    		strArr[i] = tmpArr[0];
+    		arr[i] = Integer.parseInt(tmpArr[1]);
     	}
     	
-    	while(true) {   		
-    		binNum[i] = input%2;
-    		i--;
-    		input /= 2;
-    		if(input == 0)
-    			break;
-    	}
-    	
-    	for(int j = 0; j < binNum.length; j++) {
-    		if(binNum[j] == 1) {
-    			for(int k = j; k < binNum.length; k++) {
-    				System.out.print(binNum[k]);
+    	for(int i = 0; i < arr.length-1; i++) {
+    		for(int j = 0; j < arr.length-i-1; j++) {
+    			if(arr[j] > arr[j+1]) {
+    				int tmp = arr[j];
+    				arr[j] = arr[j+1];
+    				arr[j+1] = tmp;
+    				
+    				String strTmp = strArr[j];
+    				strArr[j] = strArr[j+1];
+    				strArr[j+1] = strTmp;
     			}
-    			break;
     		}
-    	
     	}
+    	
+    	System.out.println(strArr[2]);
     }
 }
