@@ -1,17 +1,24 @@
 package com.kh.baekjun.main;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-    	//selfNum(1);
-    }
-    
-    public void selfNum(int num) {
-    	int i = num;
-    	int ten = num/10;
-    	int one = num - ten;
+    	Scanner sc = new Scanner(System.in);
+    	int input1 = sc.nextInt();
+    	int input2 = sc.nextInt();
+    	int input3 = sc.nextInt();
     	
-    	int result = i + ten + one;
-    	System.out.println(result);
-    	selfNum(i);
-    }
+    	int count = 0;
+    	
+    	for(int i = 0; i < input1; i++) {
+    		for(int j = 0; j < input2; j++) {
+    			for(int k = 0; k < input3; k++) {
+	    			System.out.println(i + " " + j + " " + k);
+	    			count++;
+    			}
+    		}
+    	}
+    	System.out.println(count);
+    }  
 }
