@@ -26,6 +26,7 @@ public class BoardViewImpl extends BoardView {
 	public void selectTitle() {
 		// service.selectTitle() 메소드를 호출하여
 		// 전달받은 매개변수를 통해 제목으로 검색하여 게시글을 조회하는 기능
+		// 중복되는 제목은 없다고 가정한다.
 		// 제목을 검색해서 게시글을 조회할 경우 해당 게시글의 조회수를 1 증가시킨다.
 		System.out.print("검색하실 게시글의 제목을 입력하세요 : ");
 		String title = sc.nextLine();

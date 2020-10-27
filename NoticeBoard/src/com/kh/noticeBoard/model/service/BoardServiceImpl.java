@@ -11,7 +11,7 @@ public class BoardServiceImpl implements BoardService{
 	private Board[] boards = { 
 			new Board("재탕 문제입니다.", "유현재", "내용은 아무거나", "1234"),
 			new Board("보면서 푸심씨오.", "이한솔", "내용은 아무거나", "5678"),
-			new Board("재탕 문제입니다.", "강수정", "내용은 아무거나", "9123"),
+			new Board("삼탕 문제입니다.", "강수정", "내용은 아무거나", "9123"),
 			new Board("매운탕 문제입니다.", "유현재", "내용은 아무거나", "1234")
 			};
 
@@ -84,6 +84,7 @@ public class BoardServiceImpl implements BoardService{
 				bd.setTitle(board.getTitle());
 				bd.setContent(board.getContent());
 				bd.setAuthor(board.getAuthor());
+				bd.setCount(bd.getCount() - 1);
 				
 				return "수정이 완료되었습니다.";
 			}
