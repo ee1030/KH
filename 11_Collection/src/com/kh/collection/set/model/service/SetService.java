@@ -153,29 +153,29 @@ public class SetService {
 		
 		Scanner sc = new Scanner(System.in);
 		
-		Set<Integer> set = new TreeSet<>();
-		List<Integer> lotto = new ArrayList<Integer>();
+		Set<Integer> inputSet = new TreeSet<>();
+		List<Integer> lottoList = new ArrayList<Integer>();
 		
 		System.out.print("숫자 7개 입력 : ");
 		String inputNum = sc.nextLine();
 		String[] splitArr = inputNum.split(" ");
 		
 		for(int i = 0; i < 7; i++) {
-			set.add((int)(Math.random()*45+1));
-			lotto.add(Integer.parseInt(splitArr[i]));
+			inputSet.add((int)(Math.random()*45+1));
+			lottoList.add(Integer.parseInt(splitArr[i]));
 		}
 		
 		System.out.print("생성된 로또 번호 : ");
-		for(int i : set) {
+		for(int i : inputSet) {
 			System.out.print(i + " ");
 		}
 		
 		int count = 0;
 		String str = "";
 		
-		for(int i : set) {
-			for(int j = 0; j < lotto.size(); j++) {
-				if(i == lotto.get(j)) {
+		for(int i : inputSet) {
+			for(int j : lottoList) {
+				if(i == j) {
 					count++;
 					str += (i + " ");
 				}	
