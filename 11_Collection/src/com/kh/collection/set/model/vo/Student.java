@@ -1,7 +1,8 @@
 package com.kh.collection.set.model.vo;
 
-public class Student {
-
+public class Student implements Comparable<Student>{
+					// Comparable : 객체의 기본 정렬 기준을 구현하는데 사용하는 인터페이스
+					// -> compareTo() 메소드 오버라이딩
 	private String name;
 	private int age;
 	private int javaScore;
@@ -72,6 +73,15 @@ public class Student {
 		} else if (!name.equals(other.name))
 			return false;
 		return true;
+	}
+
+	@Override
+	public int compareTo(Student o) {
+		// 기본 정렬 기준
+		// 이름 오름차순으로 정렬
+		
+		// 반환값이 음수, 0일 경우 순서 유지, 양수일 때 바꿈 
+		return this.name.compareTo(o.name);
 	}
 	
 	
