@@ -326,20 +326,155 @@ public class ChallengeServiceImpl implements ChallengeService{
 
 	@Override
 	public void challenge20() {
-		// TODO Auto-generated method stub
+		System.out.print("계산 해야되는 금액 : ");
+		int price = sc.nextInt();
+		System.out.print("제출한 금액 : ");
+		int payed = sc.nextInt();
+		
+		int change = payed - price;
+		System.out.println("거스름 돈 : " + change);
+		
+		String str1 = "만원 : ";
+		String str2 = "장";
+		
+		for(int i = 50000; i >= 10;) {
+			System.out.println(i/10000 + str1 + change/i + str2); 
+			if(i == 10000) {
+				str1 = "천원 : ";
+				change -= change/i * i;
+				i /= 2;
+			} else if(i == 1000) {
+				str1 = "원 : ";
+				str2 = "개";
+				change -= change/i * i;
+				i /= 2;
+			} else if(i == 100) {
+				change -= change/i * i;
+				i /= 2;
+			} else {
+				change -= change/i * i;
+				i /= 5;
+			}
+		} // if문으로 푸는 방법
+		
+//		for(int i = 50000; i >= 10;) {
+//			switch(i) {
+//			case 50000 : 
+//				System.out.println(i/10000 + "만원 : " + change/i + "장"); 
+//				change -= change/i * i;
+//				i /= 5; 
+//				break;
+//			case 10000 : 
+//				System.out.println(i/10000 + "만원 : " + change/i + "장"); 
+//				change -= change/i * i;
+//				i /= 2; 
+//				break;
+//			case 5000 : 
+//				System.out.println(i/1000 + "천원 : " + change/i + "장"); 
+//				change -= change/i * i;
+//				i /= 5; 
+//				break;
+//			case 1000 : 
+//				System.out.println(i/1000 + "천원 : " + change/i + "장");
+//				change -= change/i * i;
+//				i /= 2; 
+//				break;
+//			case 500 :  
+//				System.out.println(i/100 + "원 : " + change/i + "개"); 
+//				change -= change/i * i;
+//				i /= 5; 
+//				break;
+//			case 100 : 
+//				System.out.println(i/100 + "원 : " + change/i + "개");
+//				change -= change/i * i;
+//				i /= 2; 
+//				break;
+//			case 50 : 
+//				System.out.println(i/10 + "원 : " + change/i + "개"); 
+//				change -= change/i * i;
+//				i /= 5; 
+//				break;
+//			case 10 : 
+//				System.out.println(i/10 + "원 : " + change/i + "개"); 
+//				change -= change/i * i;
+//				i /= 2;
+//				break;
+//			default: break;
+//			}
+//		} // switch문으로 해결하는 방법
 		
 	}
 
 	@Override
 	public void challenge21() {
-		// TODO Auto-generated method stub
+		System.out.print("금액 입력 : ");
+		int input = sc.nextInt();
 		
+		int bonus = 0;
+		Set<Integer> winSet = new TreeSet<>(generateLotto());
+		List<Set<Integer>> list = new ArrayList<>();
+		
+		
+		for(int i = 0; i < input / 1000; i++) {
+			list.add(generateLotto());
+			System.out.println(list.get(i));
+		}
+		
+		while(true) {
+			bonus = (int)(Math.random()*45+1);
+			if(!winSet.contains(bonus)) break;
+		}
+		
+		System.out.println("\n당첨 번호 : " + winSet);
+		System.out.println("보너스 : " + bonus);
+		System.out.println();
+		
+		for(Set<Integer> set : list) {
+			int count = 0;
+			for(int i : set) {
+				boolean flag = false;
+				for(int j : winSet) {
+					if(i == j) {
+						flag = true;
+						count++;
+						break;
+					}
+				}
+				if(flag) {
+					System.out.printf("(%d)\t", i);
+				} else {
+					System.out.printf("%d\t", i);
+				}
+			}
+			
+			String str = "";
+			switch(count) {
+			case 6: str = "1등"; break;
+			case 5:
+				for(int j : set) {
+					if(j == bonus) {
+						str = "2등";
+						break;
+					}
+					str = "3등";
+				}
+				break;
+			case 4: str = "4등"; break;
+			case 3: str = "5등"; break;
+			default: str = "낙첨";
+			}
+			System.out.println("[" + str + "]");
+		}
 	}
 
 	@Override
 	public Set<Integer> generateLotto() {
-		// TODO Auto-generated method stub
-		return null;
+		Set<Integer> set = new TreeSet<>();
+		
+		while(set.size() < 6) {
+			set.add((int)(Math.random()*45+1));
+		}
+		return set;
 	}
 	
 	
