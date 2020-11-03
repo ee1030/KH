@@ -7,44 +7,23 @@ public class Main {
     	
     	Scanner sc = new Scanner(System.in);
     	
-    	int[][] maze = new int[10][10];
+    	int input = sc.nextInt();
     	
-    	for(int i = 0; i < maze.length; i++) {
-    		for(int j = 0; j < maze[i].length; j++) {
-    			maze[i][j] = sc.nextInt();
+    	int[][] arr = new int[input][input];
+    	int count = 1;
+    	
+    	for(int i = 0; i < arr.length; i++) {
+    		for(int j = 0; j < arr[i].length; j++) {
+    			arr[j][i] = count++;
     		}
     	}
     	
-    	int mazeCount = 1;
-    	boolean flag = false;
-    	
-    	for(int i = 1; i < maze.length; i++) {
-    		for(int j = mazeCount; j < maze[i].length; j++) {
-    			if(maze[i][j] == 1) {
-    				mazeCount = j-1;
-    				break;
-    			} else if(maze[i][j] == 2) {
-    				maze[i][j] = 9;
-    				flag = true;
-    				break;
-    			} else {
-    				maze[i][j] = 9;
-    			}
+    	for(int i = 0; i < arr.length; i++) {
+    		for(int j = 0; j < arr[i].length; j++) {
+    			System.out.print(arr[i][j] + " ");
     		}
-    		if(flag) break;
+    		System.out.println();
     	}
-    	
-    	for(int i = 0; i < maze.length; i++) {
-    		for(int j = 0; j < maze[i].length; j++) {
-    			if(i == 9 && j == 9) {
-    				System.out.print(maze[i][j]);
-    			} else {
-    				System.out.print(maze[i][j]+ " ");
-    			}
-    		}
-    		if(i != 9) {
-    			System.out.println();
-    		}
-    	}
+    			
     }
 }
