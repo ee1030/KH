@@ -7,23 +7,13 @@ public class Main {
     	
     	Scanner sc = new Scanner(System.in);
     	
-    	int input = sc.nextInt();
+    	String input = sc.nextLine();
     	
-    	int[][] arr = new int[input][input];
-    	int count = 1;
-    	
-    	for(int i = 0; i < arr.length; i++) {
-    		for(int j = 0; j < arr[i].length; j++) {
-    			arr[j][i] = count++;
-    		}
+    	for(int i = 0; i < input.length(); i++) {
+    		if(input.charAt(i) == 't')
+    		System.out.print(i+1 + " ");
     	}
     	
-    	for(int i = 0; i < arr.length; i++) {
-    		for(int j = 0; j < arr[i].length; j++) {
-    			System.out.print(arr[i][j] + " ");
-    		}
-    		System.out.println();
-    	}
-    			
+    	
     }
 }
