@@ -164,9 +164,8 @@ public class MusicView {
 		// 곡 번호를 입력받아 service.addMusicList() 메소드의 매개변수로 전달하고,
 		// boolean 값을 반환 받아 true면 "추가 성공!"
 		// false면 "추가 실패 ....(번호를 잘못 입력하였거나, 이미 목록에 추가된 곡입니다.)" 출력
-		boolean flag = service.addMusicList(musicNo);
 		
-		if(flag) System.out.println("추가 성공!");
+		if(service.addMusicList(musicNo)) System.out.println("추가 성공!");
 		else System.out.println("추가 실패 ....(번호를 잘못 입력하였거나, 이미 목록에 추가된 곡입니다.)");
 		
 	}

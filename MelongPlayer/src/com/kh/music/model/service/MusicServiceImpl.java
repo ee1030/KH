@@ -90,8 +90,7 @@ public class MusicServiceImpl implements MusicService{
 	public boolean addMusicList(int musicNo) {
 		for(Music m : musicTable) {
 			if(m.getMusicNo() == musicNo) {
-				myList.add(m);
-				return true;
+				return myList.add(m);
 			}
 		}
 		return false;
