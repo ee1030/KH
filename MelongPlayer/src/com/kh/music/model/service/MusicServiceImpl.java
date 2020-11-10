@@ -49,7 +49,7 @@ public class MusicServiceImpl implements MusicService{
 		List<Music> tmpMusic = new ArrayList<>();
 		
 		for(Music m : musicTable) {
-			if(m.getTitle().indexOf(title) != -1) {
+			if(m.getTitle().contains(title)) {
 				tmpMusic.add(m);
 			}
 		}
@@ -62,7 +62,7 @@ public class MusicServiceImpl implements MusicService{
 		List<Music> tmpMusic = new ArrayList<>();
 		
 		for(Music m : musicTable) {
-			if(m.getArtist().indexOf(artist) != -1) {
+			if(m.getArtist().contains(artist)) {
 				tmpMusic.add(m);
 			}
 		}
