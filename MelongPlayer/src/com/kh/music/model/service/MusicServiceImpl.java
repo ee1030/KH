@@ -72,8 +72,7 @@ public class MusicServiceImpl implements MusicService{
 	// 2-3. 좋아요 랭킹순으로 조회
 	@Override
 	public List<Music> selectTopFavoriteCount() {
-		List<Music> rankList = new ArrayList<>();
-		rankList = musicTable;
+		List<Music> rankList = new ArrayList<>(musicTable);
 		Collections.sort(rankList); 
 		return rankList;
 	}
