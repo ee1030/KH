@@ -101,9 +101,13 @@ public class MusicServiceImpl implements MusicService{
 	// 3-3. ³ªÀÇ ¹ÂÁ÷ ¸®½ºÆ®¿¡ °î Á¦°Å(°î ¹øÈ£)
 	@Override
 	public Music removeMusicList(int musicNo) {
-		for(Music m : musicTable) {
-			if(m.getMusicNo() == musicNo) {
-				return m;
+		Music tmpMusic = new Music();
+		
+		for(int i = 0; i < musicTable.size(); i++) {
+			if(musicTable.get(i).getMusicNo() == musicNo) {
+				tmpMusic = musicTable.get(i);
+				myList.remove(i);
+				return tmpMusic;
 			}
 		}
 		return null;
