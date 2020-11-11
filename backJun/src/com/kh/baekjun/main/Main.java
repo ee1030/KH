@@ -7,38 +7,25 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
     	Solution sol = new Solution();
-    	int[] numbers = {5, 0, 2, 7};
-    	System.out.println(Arrays.toString(sol.solution(numbers)));
-    	
+    	String[] participant = {"mislav", "stanko", "mislav", "ana"};
+    	String[] completion = {"stanko", "ana", "mislav"};
+    	System.out.println(sol.solution(participant, completion));
     }
 }
 
 class Solution {
-    public int[] solution(int[] numbers) {
-    	
-    	List<Integer> list = new ArrayList<>();
-    	List<Integer> tmpList = new ArrayList<>();
-    	
-    	for(int i = 0; i < numbers.length-1; i++) {
-    		for(int j = i+1; j < numbers.length; j++) {
-    			list.add(numbers[i] + numbers[j]);
-    		}
-    	}
-    	
-    	for(int i : list) {
-    		if(!tmpList.contains(i)) {
-    			tmpList.add(i);
-    		}
-    	}
-    	    	
-    	int[] answer = new int[tmpList.size()];
-    	
-    	for(int i = 0; i < answer.length; i++) {
-    		answer[i] = tmpList.get(i);
-    	}
-    	
-    	Arrays.sort(answer);
-    	
-        return answer;
+    public String solution(String[] participant, String[] completion) {
+        
+        Arrays.sort(participant);
+        Arrays.sort(completion);
+        int i = 0;
+        
+        for(i = 0; i < completion.length; i++) {
+        	if(participant[i] != completion[i]) {
+        		return participant[i];
+        	}
+        }
+        
+        return participant[i];
     }
 }
