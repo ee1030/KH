@@ -1,13 +1,9 @@
 package com.kh.music.model.service;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Scanner;
-import java.util.Set;
-import java.util.TreeSet;
 
 import com.kh.music.model.vo.Music;
 
@@ -80,7 +76,6 @@ public class MusicServiceImpl implements MusicService{
 	// 3-1. 나의 뮤직 리스트 조회
 	@Override
 	public List<Music> selectMyMusicList() {
-		
 		return myList;
 	}
 
