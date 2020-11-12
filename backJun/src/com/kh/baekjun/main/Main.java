@@ -6,9 +6,9 @@ import java.util.Set;
 public class Main {
     public static void main(String[] args) {
     	Solution sol = new Solution();
-    	int n = 5;
-    	int[] lost = {2, 4};
-    	int[] reserve = {1, 3, 5};
+    	int n = 3;
+    	int[] lost = {3};
+    	int[] reserve = {1};
     	System.out.println(sol.solution(n, lost, reserve));
     }
 }
@@ -24,9 +24,21 @@ class Solution {
         	set.add(i+1);
         }
         
+        for(int i : lost) {
+        	if(set.contains(i)) {
+        		set.remove(i);
+        		i = -1;
+        	}
+        }
         
-       
-        System.out.println(set);
+        int count = lost.length;
+        
+        for(int i : reserve) {
+        	if(set.contains(i)) count --;
+        	if(count == 0) break;
+        }
+        
+        answer = n - count;
         
         return answer;
     }
