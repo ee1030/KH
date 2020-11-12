@@ -7,25 +7,55 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
     	Solution sol = new Solution();
-    	String[] participant = {"mislav", "stanko", "mislav", "ana"};
-    	String[] completion = {"stanko", "ana", "mislav"};
-    	System.out.println(sol.solution(participant, completion));
+    	int[] answers = {1, 2, 3, 4, 5};
+    	System.out.println(Arrays.toString(sol.solution(answers)));
     }
 }
 
 class Solution {
-    public String solution(String[] participant, String[] completion) {
+    public int[] solution(int[] answers) {
+        List<Integer> list = new ArrayList<>();
         
-        Arrays.sort(participant);
-        Arrays.sort(completion);
-        int i = 0;
+        int[] ansCnt = new int[3]; 
         
-        for(i = 0; i < completion.length; i++) {
-        	if(participant[i] != completion[i]) {
-        		return participant[i];
+        int[] patt1 = {1, 2, 3, 4, 5};
+        int[] patt2 = {2, 1, 2, 3, 2, 4, 2, 5};
+        int[] patt3 = {3, 3, 1, 1, 2, 2, 4, 4, 5, 5};
+        
+        int max = 0;
+        
+        for(int i = 0; i < answers.length; i++) {
+        	if(answers[i] == patt1[i%5]) {
+        		ansCnt[0]++;
+        	}
+        	
+        	if(answers[i] == patt2[i%8]) {
+        		ansCnt[1]++;
+        	}
+        	
+        	if(answers[i] == patt3[i%10]) {
+        		ansCnt[2]++;
         	}
         }
         
-        return participant[i];
+        for(int i = 0; i < ansCnt.length; i++) {
+        	if(max < ansCnt[i]) {
+        		max = ansCnt[i];
+        	}
+        }
+        
+        for(int i = 0; i < ansCnt.length; i++) {
+        	if(max == ansCnt[i]) {
+        		list.add(i+1);
+        	}
+        }
+        
+        int[] answer = new int[list.size()];
+        
+        for(int i = 0; i < answer.length; i++) {
+        	answer[i] = list.get(i);
+        }
+        
+        return answer;
     }
 }
