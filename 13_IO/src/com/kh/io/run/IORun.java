@@ -6,7 +6,7 @@ public class IORun {
 
 	public static void main(String[] args) {
 		FileService fs = new FileService();
-		fs.example1();
+		fs.example4();
 	}
 
 }
