@@ -3,6 +3,8 @@ package com.kh.eh.model.service;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import com.kh.eh.model.exception.InputZeroException;
+
 public class ExceptionService {
 	
 	/* 런타임 에러 : 프로그램 실행 중 발생하는 에러
@@ -214,7 +216,36 @@ public class ExceptionService {
 		// 예외를 강제로 발생시켜 던질까 말까 던질까 말까 던질까 말까 던질까 말까 던던던던 던져 던져!
 		throw new NullPointerException();
 	}
-
 	
+	public void example7() {
+		// 사용자 정의 예제
+		// 자바 API에서 제공하는 예외 클래스만으로는 처리할 수 없는 예외가 있을 경우
+		// 사용자의 필요에 따라 생성하는 예외 클래스
+		try {
+			System.out.println("프로그램 실행");
+			
+			sumMethod();
+			
+			System.out.println("프로그램 정상 종료");
+		} catch(InputZeroException e) {}
+	}
+
+	public void sumMethod() throws InputZeroException {
+		// 숫자 3개를 입력받아 합을 출력하는 메소드
+		// 단, 중간에 0을 입력하면 합이 출력되지 않고 비정상 종료
+		Scanner sc = new Scanner(System.in);
+		
+		int sum = 0;
+		
+		for(int i = 1; i <= 3; i++) {
+			System.out.print("입력 " + i + " : ");		
+			int num = sc.nextInt();
+			if(num == 0) {
+				throw new InputZeroException();
+			}
+			sum += num;
+		}		
+		System.out.println("합계 : " + sum);
+	}
 }
 
