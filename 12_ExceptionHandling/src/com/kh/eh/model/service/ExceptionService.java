@@ -129,9 +129,92 @@ public class ExceptionService {
 				sel = -1;
 				sc.nextLine();
 			}
-			
 		} while(sel != 0);
 	}
 
+	public void example5() {
+		// finally : try - catch 구문 수행 후 마지막으로 반드시 실행해야하는 코드를 작성하는 구문
+		// try 구문에서 예외가 발생 하든 말든 무조건적으로 마지막에 실행됨
+		
+		// 정수 2대를 입력 받아 나누어 몫을 출력하는 프로그램
+		
+		// 발생할 수 있는 예외 : 0으로 나눴을 때, 정수가 아닌 값을 입력했을 때
+		Scanner sc = new Scanner(System.in);
+		
+		try {
+			System.out.print("정수 1 입력 : ");
+			int num1 = sc.nextInt();
+			
+			System.out.print("정수 2 입력 : ");
+			int num2 = sc.nextInt();
+			
+			System.out.println("나누기 결과 : " + num1/num2);
+			
+			throw new Exception();
+		} 
+		
+		catch(InputMismatchException e) {
+			System.out.println("정수만 입력하세요.");
+			e.printStackTrace(); // 예외가 발생한 모든 자취와 줄 번호를 출력
+		} 
+		
+		catch(ArithmeticException e) {
+			System.out.println("0으로 나눌 수 없습니다.");
+			System.out.println(e.getMessage());
+		}
+		
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+	
+		finally {
+			System.out.println("프로그램 종료.");
+		}
+		
+	}
+	
+	// -----------------------------------------------------------------------------------------
+	
+	/* throws : 예외 발생 시 발생한 예외를 직접 처리하지 않고
+	 * 			예외가 발생한 메소드를 호출한 부분으로 전달
+	 * 
+	 */
+	
+	public void example6() {
+		System.out.println("6 호출됨.");
+		try {
+			example6_1();
+		}
+		
+		catch (ArithmeticException e) {
+			System.out.println("0으로 나눌 수 없습니다.");
+		}
+		
+		catch (NullPointerException e) {
+			System.out.println("Null을 참조했쌉 맨");
+		}
+	}
+	
+	public void example6_1() throws ArithmeticException, NullPointerException {
+		System.out.println("6_1 호출됨.");
+		example6_2();
+	}
+	
+	public void example6_2() throws ArithmeticException, NullPointerException {
+		System.out.println("6_2 호출됨.");
+		example6_3();
+	}
+	
+	public void example6_3() throws ArithmeticException, NullPointerException {
+		System.out.println("6_3 호출됨.");
+		
+		// int num = 2 / 0;
+		// ArithmeticException : / by zero
+		
+		// 예외를 강제로 발생시켜 던질까 말까 던질까 말까 던질까 말까 던질까 말까 던던던던 던져 던져!
+		throw new NullPointerException();
+	}
+
+	
 }
 
