@@ -8,4 +8,10 @@ public class InputZeroException extends Exception{
 	public InputZeroException() {
 		System.out.println("0이 입력되었습니다.");
 	}
+	
+	// 오버 로딩 : 같은 클래스 내에서 같은 메소드명으로 여러 메소드를 작성하는 것.
+	// 메소드명 일치, 매개 변수의 타입, 순서, 개수가 달라야 함
+	public InputZeroException(String msg) {
+		super(msg);
+	}
 }

@@ -207,7 +207,7 @@ public class ExceptionService {
 		example6_3();
 	}
 	
-	public void example6_3() throws ArithmeticException, NullPointerException {
+	public void example6_3() throws ArithmeticException {
 		System.out.println("6_3 호출됨.");
 		
 		// int num = 2 / 0;
@@ -215,6 +215,15 @@ public class ExceptionService {
 		
 		// 예외를 강제로 발생시켜 던질까 말까 던질까 말까 던질까 말까 던질까 말까 던던던던 던져 던져!
 		throw new NullPointerException();
+		// NullPointerException은 RuntimeException의 후손으로
+		// UncheckedException 분류에 포함되어
+		// 별도의 예외처리가 없어도 된다.
+		
+		// throw new InputZeroException();
+		// InputZeroException 클래스처럼
+		// RuntimeException이 아닌 다른 예외 클래스를 상속한 클래스들은
+		// 모두 CheckedException 분류에 포함되어
+		// 반드시 예외 처리가 필요하다.
 	}
 	
 	public void example7() {
@@ -227,7 +236,11 @@ public class ExceptionService {
 			sumMethod();
 			
 			System.out.println("프로그램 정상 종료");
-		} catch(InputZeroException e) {}
+		} catch(InputZeroException e) {
+			System.out.println(e.getMessage());
+			System.out.println("비정상 종료");
+			//e.printStackTrace();
+		}
 	}
 
 	public void sumMethod() throws InputZeroException {
@@ -241,7 +254,7 @@ public class ExceptionService {
 			System.out.print("입력 " + i + " : ");		
 			int num = sc.nextInt();
 			if(num == 0) {
-				throw new InputZeroException();
+				throw new InputZeroException("0 입력하지 마라...입력하지 말라했다...");
 			}
 			sum += num;
 		}		
