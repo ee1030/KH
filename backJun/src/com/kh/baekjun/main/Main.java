@@ -1,60 +1,32 @@
 package com.kh.baekjun.main;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {
     	Solution sol = new Solution();
-    	int[] answers = {1, 2, 3, 4, 5};
-    	System.out.println(Arrays.toString(sol.solution(answers)));
+    	int n = 5;
+    	int[] lost = {2, 4};
+    	int[] reserve = {1, 3, 5};
+    	System.out.println(sol.solution(n, lost, reserve));
     }
 }
 
 class Solution {
-    public int[] solution(int[] answers) {
-        List<Integer> list = new ArrayList<>();
+    public int solution(int n, int[] lost, int[] reserve) {
+        int answer = 0;
         
-        int[] ansCnt = new int[3]; 
+        Set<Integer> set = new HashSet<>();
         
-        int[] patt1 = {1, 2, 3, 4, 5};
-        int[] patt2 = {2, 1, 2, 3, 2, 4, 2, 5};
-        int[] patt3 = {3, 3, 1, 1, 2, 2, 4, 4, 5, 5};
-        
-        int max = 0;
-        
-        for(int i = 0; i < answers.length; i++) {
-        	if(answers[i] == patt1[i%5]) {
-        		ansCnt[0]++;
-        	}
-        	
-        	if(answers[i] == patt2[i%8]) {
-        		ansCnt[1]++;
-        	}
-        	
-        	if(answers[i] == patt3[i%10]) {
-        		ansCnt[2]++;
-        	}
+        for(int i : lost) {
+        	set.add(i-1);
+        	set.add(i+1);
         }
         
-        for(int i = 0; i < ansCnt.length; i++) {
-        	if(max < ansCnt[i]) {
-        		max = ansCnt[i];
-        	}
-        }
         
-        for(int i = 0; i < ansCnt.length; i++) {
-        	if(max == ansCnt[i]) {
-        		list.add(i+1);
-        	}
-        }
-        
-        int[] answer = new int[list.size()];
-        
-        for(int i = 0; i < answer.length; i++) {
-        	answer[i] = list.get(i);
-        }
+       
+        System.out.println(set);
         
         return answer;
     }
