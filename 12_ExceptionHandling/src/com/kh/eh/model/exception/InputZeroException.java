@@ -1,6 +1,6 @@
 package com.kh.eh.model.exception;
 
-public class InputZeroException extends Exception{
+public class InputZeroException extends RuntimeException{
 	// 사용자 정의 예외를 만드는 방법
 	// -> 예외로 만들려고 하는 클래스에 Exception 관련 클래스를 상속시킨다.
 	
