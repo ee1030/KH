@@ -23,4 +23,13 @@ public class ByteService {
 		return result; // byteDAO.byteFileSave() 의 수행 결과를 그대로 View로 반환
 	}
 
+	public String byteFileOpen(String path) throws FileNotFoundException {
+		// Service는 DAO로 전달할 데이터 또는
+		// 반환받은 데이터를 가공하는 역할. (비즈니스 로직)
+		
+		String content = byteDAO.byteFileOpen(path);
+		
+		return content;
+	}
+
 }

@@ -1,5 +1,6 @@
 package com.kh.io.model.dao;
 
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -40,7 +41,7 @@ public class ByteDAO {
 			
 			// 스트림은 사용한 경우 반드시 반환해야함.
 			try {
-				if(fOut != null) fOut.close();
+				if(fOut != null) fOut.close(); // fOut이 생성 되었으면 닫는다.
 				
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -48,6 +49,50 @@ public class ByteDAO {
 		}
 		
 		return result;
+	}
+
+	public String byteFileOpen(String path) throws FileNotFoundException {
+		
+		StringBuffer sb = null; // 읽어올 파일 내용을 저장할 변수
+		
+		FileInputStream fis = new FileInputStream(path);
+		// FileInputStream 객체 생성 시
+		// 매개 변수에 작성된 path에 있는 파일과 연결
+		// 만약 해당 파일이 없다면 FileNotFoundException이 발생
+		
+		// 바이트 기반 스트림의 read() 메소드는
+		// 파일의 내용을 순차적으로 1바이트씩 읽어옴.
+		// 더 이상 읽어올 내용이 없다면 -1 반환.
+		
+		try {
+			sb = new StringBuffer();
+			
+			int value = 0; // read()를 통해 읽어온 값을 임시 저장할 변수
+			
+			while((value = fis.read()) != -1) {
+				// while문을 이용해서 read() 메소드가 -1이 나올때 까지 반복
+				// 읽어온 값 value를 char 형태로 형변환하여
+				// sb에 누적
+				
+				sb.append((char)value);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(fis != null) fis.close();
+				
+			}catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		if(sb != null) {
+			return sb.toString(); 
+		} else {
+			return null;
+		}
 	}
 	
 }
